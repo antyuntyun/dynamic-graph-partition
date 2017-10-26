@@ -6,14 +6,12 @@ from neo4j.v1 import GraphDatabase, basic_auth
 config = ConfigParser.SafeConfigParser()
 try:
     config.read('neo.conf')
-    ip_asama = config.get('asama', 'ip')
-    port_asama = config.get('asama', 'port')
+    ip_asama = config.get('server', 'asama')
 except:
     print "Error occured in reading config"
     exit()
  
-print ("asama ip: %s" %ip_asama)
-print ("asama port: %s" %port_asama)
+#print ("asama ip: %s" %ip_asama)
 
 bolt = "bolt://"
 bolt_asama = bolt + ip_asama
