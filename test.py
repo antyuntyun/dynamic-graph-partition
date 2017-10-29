@@ -1,6 +1,10 @@
 import sys
-import ConfigParser
+import ConfigParser, logging
 from neo4j.v1 import GraphDatabase, basic_auth
+from neo4j.util import watch
+from sys import stdout
+
+watch("neo4j.bolt", logging.DEBUG, stdout)
 
 ## read config file
 config = ConfigParser.SafeConfigParser()
