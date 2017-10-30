@@ -1,6 +1,6 @@
-import sys
-import ConfigParser, logging
-import CypherModule as cm
+import sys, ConfigParser, logging
+import CypherModule as cm 
+import networkx as nx
 from neo4j.v1 import GraphDatabase, basic_auth
 from neo4j.util import watch
 from sys import stdout
@@ -33,9 +33,9 @@ result = session.run("MATCH (a:Person { name : '%s'})-[r:ACTED_IN]->(b) "
 for record in result:
     print("%s-%s->%s " % (record["a.name"], record["Type"], record["b.title"]))
 
-session.write_transaction(cm.add_friends,"Arthur","Mark")
-session.write_transaction(cm.add_friends,"Arthur","David")
-session.write_transaction(cm.add_friends,"Arthur","Evan")
+#session.write_transaction(add_friends,"Arthur","Mark")
+#session.write_transaction(add_friends,"Arthur","David")
+#session.write_transaction(add_friends,"Arthur","Evan")
 session.read_transaction(cm.print_friends,"Arthur")
 
 
