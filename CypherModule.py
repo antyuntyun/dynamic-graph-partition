@@ -1,8 +1,12 @@
-####################
-#    Cypher Module
-#
-#   vegas 2017/10/30
 #####################
+#    Cypher Module  #
+#                   #
+#  vegas 2017/10/30 #
+#####################
+
+# session means Bolt driver session for Neo4j
+#
+#
 
 def add_friends(session, name, friend_name):
     session.run("MERGE (a:Person {name: $name}) "
