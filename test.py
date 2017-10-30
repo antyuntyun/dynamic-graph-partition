@@ -1,9 +1,11 @@
 import sys
 import ConfigParser, logging
+import CypherModule as cm
 from neo4j.v1 import GraphDatabase, basic_auth
 from neo4j.util import watch
 from sys import stdout
 
+#Debug
 watch("neo4j.bolt", logging.DEBUG, stdout)
 
 ## read config file
@@ -31,17 +33,20 @@ result = session.run("MATCH (a:Person { name : '%s'})-[r:ACTED_IN]->(b) "
 for record in result:
     print("%s-%s->%s " % (record["a.name"], record["Type"], record["b.title"]))
 
-def add_friends(tx, name, friend_name):
-    tx.run("MERGE (a:Person {name: $name}) "
-           "MERGE (a)-[:KNOWS]->(friend:Person {name: $friend_name})",
-           name=name, friend_name=friend_name)
+#def add_friends(tx, name, friend_name):
+ #   tx.run("MERGE (a:Person {name: $name}) "
+  #         "MERGE (a)-[:KNOWS]->(friend:Person {name: $friend_name})",
+   #        name=name, friend_name=friend_name)
 
-def print_friends(tx, name):
-    for record in tx.run("MATCH (a:Person)-[:KNOWS]->(friend) WHERE a.name = $name "
-                         "RETURN friend.name ORDER BY friend.name", name=name):
-        print(record["friend.name"])
+#def print_friends(tx, name):
+ #   for record in tx.run("MATCH (a:Person)-[:KNOWS]->(friend) WHERE a.name = $name "
+  #                       "RETURN friend.name ORDER BY friend.name", name=name):
+   #     print(record["friend.name"])
 
-
+session.write_transaction(cm.add_friends,"Arthur","Mark")
+session.write_transaction(cm.add_friends,"Arthur","David")
+session.write_transaction(cm.add_friends,"Arthur","Evan")
+session.read_transaction(cm.print_friends,"Arthur")
 
 
 session.close()
