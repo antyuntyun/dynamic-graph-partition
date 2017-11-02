@@ -31,9 +31,12 @@ class CypherModule():
                                  "RETURN friend.name ORDER BY friend.name", name=name):
             print(record["friend.name"])
 
-    def get_some_data(self,session):
+    def get_some_data(self, session):
         return  session.run("MATCH (a)-[b]->(c) RETURN a,type(b),c LIMIT 10")    
     
+    def get_all_data(self, session):
+        return session.run("MATCH (a)-[b]->(c) RETURN a, type(b), c")
+
     def get_adjacent_nodes(self,session,name):
         return  session.run("MATCH (a)-[b]-(c) WHERE a.name = $name RETURN a,type(b),c", name=name)
 
