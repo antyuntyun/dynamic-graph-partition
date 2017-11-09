@@ -5,7 +5,7 @@ import json, datetime, time
 import sys, ConfigParser
 import pandas as pd
 
-
+#'''
 #read config file
 config = ConfigParser.SafeConfigParser()
 try:
@@ -17,6 +17,10 @@ try:
 except:
     print "Error occured in reading config"
     exit()
+print "CK: " + CK
+print "CS: " + CS
+print "AT: " + AT
+print "AS: " + AS
 session = OAuth1Session(CK, CS, AT, AS)
  
 url = 'https://api.twitter.com/1.1/search/tweets.json'
