@@ -1,6 +1,7 @@
 import sys, ConfigParser, logging
 from Cypher.vneo import CypherModule,NeoAPI
-from NX.NeoNx import NeoNx 
+from GraphModule.NeoNx import NeoNx
+from  GraphModule.Clustering import louvainclusteringplot as lc 
 import networkx as nx
 from networkx.algorithms import shortest_paths as spt
 import community
@@ -78,6 +79,7 @@ for i in range(1):
 ## clustering
 #print("vegas clustering ... ")
     nx_g = nn.UnDirectedNeo2Nx(tmp)
+    lc(nx_g)
 #print"UDG: " + nx_g.__class__.__name__
     partition = community.best_partition(nx_g)
 #print("partition: ")
