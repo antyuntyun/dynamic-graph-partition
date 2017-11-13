@@ -24,7 +24,7 @@ print ("AS: " + AS)
 session = OAuth1Session(CK, CS, AT, AS)
  
 url = 'https://api.twitter.com/1.1/search/tweets.json'
-res = session.get(url, params = {'q':u'沖縄旅行', 'count':10})
+res = session.get(url, params = {'q':u'iPhoneX', 'count':10})
  
 if res.status_code != 200:
     print ("Twitter API Error: %d" % res.status_code)
