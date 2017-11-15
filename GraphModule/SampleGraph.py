@@ -1,3 +1,5 @@
+#coding:utf-8
+
 import networkx as nx
 import numpy as np
 from numpy.random import *
@@ -30,10 +32,14 @@ def make_small_graph(n,k,p,seed=None):
     
 def main():
     G = nx.complete_graph(5)
+    #完全グラフ
+    G2 = nx.barbell_graph(10,10)
+    G3 = nx.watts_strogatz_graph(100,15,0.1)    
 
-    pos = nx.spring_layout(G)
-    nx.draw(G,pos,with_labels=True)
+    pos = nx.spring_layout(G3)
+    nx.draw(G3,pos,with_labels=True)
     plt.show()
+ 
 
 if __name__ == "__main__":
     main()
