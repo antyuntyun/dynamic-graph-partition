@@ -27,7 +27,7 @@ params = {'count': 100}
 
 TweetList = []
 
-for i in range(100):
+for i in range(1):
     req = session.get(url, params = params)
     if req.status_code == 200:
         timeline = json.loads(req.text)
@@ -35,7 +35,7 @@ for i in range(100):
             TweetList.append(tweet["text"])
     else:
         print ("Error: %d" % req.status_code)
-    time.sleep(240)
+#    time.sleep(240)
 
 df = pd.DataFrame(TweetList)
-df.to_csv('TweetList.csv')
+df.to_csv('TweetList.csv',encoding="utf-8")
