@@ -1,6 +1,6 @@
 import networkx as nx
 import community
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 def louvainclusteringplot(G):
   partition = community.best_partition(G) 

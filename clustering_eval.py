@@ -1,6 +1,6 @@
 import GraphModule.SampleGraph as sg
 from  GraphModule.Clustering import louvainclusteringplot as lc 
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import networkx as nx
 import community
 import time
@@ -27,7 +27,7 @@ for i in range(3):
     print (str(GraphSize) + "," + str(s))
     s = 0
     GraphSize *= 10
-
+'''
 for i in range(4):
     nx = sg.random_bipartite_graph(GraphSize/2, GraphSize/2,0.3)
     for i in range(1):
@@ -38,7 +38,7 @@ for i in range(4):
     #ave = s/100
     print (str(GraphSize) + "," + str(s))
     GraphSize += 10000
-
+'''
 
 
 

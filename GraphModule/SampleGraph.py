@@ -5,7 +5,7 @@ from networkx.algorithms import bipartite as bp
 import numpy as np
 from numpy.random import *
 import random    
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 from scipy import special
 
 
