@@ -105,7 +105,7 @@ for i in range(1):
     spt.all_pairs_shortest_path_length(nx_g)        
 
     end = time.time() - st 
-    print ("elapsed_time:{0}".format(end) + "[sec]")
+    #print ("elapsed_time:{0}".format(end) + "[sec]")
 print ("cluster count: %d" % (size + 1))
 '''
     f = open('o_test.csv', 'a') 
